@@ -66,7 +66,7 @@
                                             name="size" value="{{ old('size') }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="composed">Tác giả</label>
+                                        <label for="composed">Sáng tác</label>
                                         <input type="text" class="form-control" id="composed"
                                             placeholder="Enter composed" name="composed" value="{{ old('composed') }}">
                                     </div>
@@ -77,7 +77,7 @@
                                             value="{{ old('description') }}"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="subcate">sub_category</label>
+                                        <label for="subcate">Danh mục phụ</label>
                                         <select name="sub_category_id" class="custom-select" id="subcate">
                                             @foreach ($sub_categories as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -85,7 +85,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="material">material</label>
+                                        <label for="material">Chất liệu</label>
                                         <select name="material_id" class="custom-select" id="material">
                                             @foreach ($materials as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -93,7 +93,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="color">color</label>
+                                        <label for="color">Màu sắc</label>
                                         <select name="color_id" class="custom-select" id="color">
                                             @foreach ($colors as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -101,7 +101,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="tone">tone</label>
+                                        <label for="tone">Tông màu</label>
                                         <select name="tone_id" class="custom-select" id="tone">
                                             @foreach ($tones as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>

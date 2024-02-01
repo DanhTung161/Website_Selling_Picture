@@ -2581,14 +2581,14 @@
                                             <img src="img/icons/icon-cart.svg" width="14" alt=""
                                                 class="header-nav-top-icon-img" />
                                             <span class="cart-info">
-                                                <span class="cart-qty">1</span>
+                                                <span class="cart-qty">0</span>
                                             </span>
                                         </a>
                                         <div class="header-nav-features-dropdown" id="headerTopCartDropdown">
                                             <ol class="mini-products-list">
                                                 <li class="item">
                                                     <a href="#" title="Camera X1000"
-                                                        class="product-image"><img src="img/products/product-1.jpg"
+                                                        class="product-image"><img src=""
                                                             alt="Camera X1000" /></a>
                                                     <div class="product-details">
                                                         <p class="product-name">
@@ -2641,8 +2641,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12 col-lg-5 mb-5 mb-lg-0">
                         <h2 class="font-weight-bold text-5 mb-0">Login</h2>
-                        <form action="{{ route('post_login_user') }}" id="frmSignIn" method="post"
-                            class="needs-validation">
+                        <form action="{{ route('post_login_user') }}"  method="post" class="needs-validation">
                             @csrf
                             <div class="row">
                                 <div class="form-group col">
@@ -2880,7 +2879,6 @@
     <script src="{{ asset('user/js/vivus.min.js') }}"></script>
 
     <!-- Theme Base, Components and Settings -->
-    <script src="js/theme.js"></script>
 
     <script src="{{ asset('user/js/theme.js') }}"></script>
 

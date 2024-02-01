@@ -54,6 +54,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('sub_category') }}" class="nav-link active">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Danh mục phụ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('material') }}" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Chất liệu</p>

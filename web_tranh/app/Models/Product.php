@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $table='products';
+
     use HasFactory;
     protected $fillable = [
         'title',
@@ -20,4 +22,6 @@ class Product extends Model
         'color_id',
         'tone_id',
     ];
+    
+    
 }

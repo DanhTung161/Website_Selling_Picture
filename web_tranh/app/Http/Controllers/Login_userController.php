@@ -9,17 +9,18 @@ class Login_userController extends Controller
 {
     function authenticate(Request $request)
     {
+   
         $email = $request->input('email');
         $password = $request->input('password');
-
-        
+        // dd($request->all());
         if (Auth::attempt(['email' => $email, 'password' => $password, 'role' => 'User'])) {
-            dd($request->all());
-            // login thành công
-            return redirect()->route('home');
+            
+            return redirect()->route('home_user');
         }
+        return redirect()->back();
+        
     }
-    function adminLogout() {
+    function Logout() {
         Auth::logout();
         return redirect()->route('login');
     }

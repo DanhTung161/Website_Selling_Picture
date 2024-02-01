@@ -1,33 +1,54 @@
 <div class="col-lg-3 order-2 order-lg-1">
     <aside class="sidebar">
-        <form action="page-search-results.html" method="get">
+        {{-- <form action="" method="get">
             <div class="input-group mb-3 pb-1">
-                <input class="form-control text-1" placeholder="Search..." name="s" id="s" type="text">
+                <input class="form-control text-1" placeholder="Search" name="table_search" id="s" type="text">
                 <button type="submit" class="btn btn-dark text-1 p-2"><i class="fas fa-search m-2"></i></button>
             </div>
-        </form>
-        <h5 class="font-weight-semi-bold pt-3">Categories</h5>
-        <ul class="nav nav-list flex-column">
-            <li class="nav-item"><a class="nav-link" href="#">Arts & Crafts</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Automotive</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Baby</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Books</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Eletronics</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Women's Fashion</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Men's Fashion</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Health & Household</a>
+        </form> --}}
+        <h5 class="font-weight-semi-bold pt-3">Danh mục</h5>
+        <ul class="nav  flex-column">
+            @foreach ($cate as $item)
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('home_user',['category_id' => $item->id])}}" >{{$item->name}}</a>                                    
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">Home & Kitchen</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Military Accessories</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">Movies & Television</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">Sports & Outdoors</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Tools & Home
-                    Improvement</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Toys & Games</a></li>
+            @endforeach
         </ul>
-        <h5 class="font-weight-semi-bold pt-5">Tags</h5>
+        <h5 class="font-weight-semi-bold pt-3">Màu Sắc</h5>
+        <ul class="nav  flex-column">
+            @foreach ($color as $item)
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home_user',['color_id' => $item->id])}}">{{$item->name}}</a>                                    
+            </li>
+            @endforeach
+        </ul>
+        <h5 class="font-weight-semi-bold pt-3">Tông màu </h5>
+        <ul class="nav  flex-column">
+            @foreach ($tone as $item)
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home_user',['tone_id' => $item->id])}}">{{$item->name}}</a>                                    
+            </li>
+            @endforeach
+        </ul>
+        <h5 class="font-weight-semi-bold pt-3">Chất liệu </h5>
+        <ul class="nav  flex-column">
+            @foreach ($material as $item)
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home_user',['material_id' => $item->id])}}">{{$item->name}}</a>                                    
+            </li>
+            @endforeach
+        </ul>
+        
+        {{-- <h5 class="font-weight-semi-bold pt-3">Kích thước</h5>
+        <ul class="nav  flex-column">
+            @foreach ($product as $item)
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home_user')}}">{{$item->size}}</a>                                    
+            </li>
+            @endforeach
+        </ul> --}}
+
+        {{-- <h5 class="font-weight-semi-bold pt-5">Tags</h5>
         <div class="mb-3 pb-1">
             <a href="#"><span
                     class="badge badge-dark badge-sm rounded-pill text-uppercase px-2 py-1 me-1">Nike</span></a>
@@ -149,6 +170,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </aside>
 </div>

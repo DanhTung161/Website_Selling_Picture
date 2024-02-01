@@ -34,7 +34,6 @@ class ProductController extends Controller
             ->max(12 * 1024),],
             'price' => 'required',
             'size' => 'required',
-            'composed' => 'required',
             'description' => 'max:300'
         ], [
             'title.required' => 'bạn phải nhập title vào',
@@ -44,7 +43,6 @@ class ProductController extends Controller
             'description.max' => 'Mô tả quá dài ',
             'price.required' => 'Bạn chưa nhập giá',
             'size.required' => 'Bạn chưa nhập kích cỡ',
-            'composed.required' => 'Bạn chưa nhập tác giả',
         ]);
         if ($validator->fails()) {
             return redirect()->route('product.create')

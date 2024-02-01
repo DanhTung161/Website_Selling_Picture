@@ -7,48 +7,48 @@
                 <div class="thumb-gallery-wrapper">
                     <div class="thumb-gallery-detail owl-carousel owl-theme manual nav-inside nav-style-1 nav-dark mb-3">
                         <div>
-                            <img alt="" class="img-fluid" src="img/products/product-grey-7.jpg"
-                                data-zoom-image="img/products/product-grey-7.jpg">
+                            <img alt="" class="img-fluid" src=""
+                                data-zoom-image="">
                         </div>
                         <div>
-                            <img alt="" class="img-fluid" src="img/products/product-grey-7-2.jpg"
-                                data-zoom-image="img/products/product-grey-7-2.jpg">
+                            <img alt="" class="img-fluid" src=""
+                                data-zoom-image="">
                         </div>
                         <div>
-                            <img alt="" class="img-fluid" src="img/products/product-grey-7-3.jpg"
-                                data-zoom-image="img/products/product-grey-7-3.jpg">
+                            <img alt="" class="img-fluid" src=""
+                                data-zoom-image="">
                         </div>
                         <div>
-                            <img alt="" class="img-fluid" src="img/products/product-grey-8.jpg"
-                                data-zoom-image="img/products/product-grey-8.jpg">
+                            <img alt="" class="img-fluid" src=""
+                                data-zoom-image="">
                         </div>
                         <div>
-                            <img alt="" class="img-fluid" src="img/products/product-grey-6.jpg"
-                                data-zoom-image="img/products/product-grey-6.jpg">
+                            <img alt="" class="img-fluid" src=""
+                                data-zoom-image="">
                         </div>
                         <div>
-                            <img alt="" class="img-fluid" src="img/products/product-grey-5.jpg"
-                                data-zoom-image="img/products/product-grey-5.jpg">
+                            <img alt="" class="img-fluid" src=""
+                                data-zoom-image="">
                         </div>
                     </div>
                     <div class="thumb-gallery-thumbs owl-carousel owl-theme manual thumb-gallery-thumbs">
                         <div class="cur-pointer">
-                            <img alt="" class="img-fluid" src="img/products/product-grey-7.jpg">
+                            <img alt="" class="img-fluid" src="">
                         </div>
                         <div class="cur-pointer">
-                            <img alt="" class="img-fluid" src="img/products/product-grey-7-2.jpg">
+                            <img alt="" class="img-fluid" src="">
                         </div>
                         <div class="cur-pointer">
-                            <img alt="" class="img-fluid" src="img/products/product-grey-7-3.jpg">
+                            <img alt="" class="img-fluid" src="">
                         </div>
                         <div class="cur-pointer">
-                            <img alt="" class="img-fluid" src="img/products/product-grey-8.jpg">
+                            <img alt="" class="img-fluid" src="">
                         </div>
                         <div class="cur-pointer">
-                            <img alt="" class="img-fluid" src="img/products/product-grey-6.jpg">
+                            <img alt="" class="img-fluid" src="">
                         </div>
                         <div class="cur-pointer">
-                            <img alt="" class="img-fluid" src="img/products/product-grey-5.jpg">
+                            <img alt="" class="img-fluid" src="">
                         </div>
                     </div>
                 </div>

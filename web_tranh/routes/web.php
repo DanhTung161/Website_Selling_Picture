@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\MaterialController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\Sub_CategoryController;
 use App\Http\Controllers\Admin\ToneController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Login_userController;
+use App\Models\Sub_Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +49,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('update-category/{id}', [CategoryController::class , 'edit'])->name('category.update');
     Route::post('put-category',[CategoryController::class, 'onEdit'])->name('category.put');
     Route::get('delete-category/{id}', [CategoryController::class , 'delete'])->name('category.delete');
+    //subcategory 
+    Route::get('/subcategory', [Sub_CategoryController::class , 'index'])->name('sub_category');
+    Route::get('create-subcategory', [Sub_CategoryController::class , 'create'])->name('subcategory.create');
+    Route::post('post-subcategory', [Sub_CategoryController::class , 'onCreate'])->name('subcategory.post');
+    Route::get('update-subcategory/{id}', [Sub_CategoryController::class , 'edit'])->name('subcategory.update');
+    Route::post('put-subcategory',[Sub_CategoryController::class, 'onEdit'])->name('subcategory.put');
+    Route::get('delete-subcategory/{id}', [Sub_CategoryController::class , 'delete'])->name('subcategory.delete');
     //color
     Route::get('/color', [ColorController::class , 'index'])->name('color');
     Route::get('create-color', [ColorController::class , 'create'])->name('color.create');
@@ -89,9 +98,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 
 //User
-Route::get('/home', [HomeController::class , 'index'])->name('home_user');
-
+Route::get('/', [HomeController::class , 'index'])->name('home_user');
 Route::get('/login', function () { return view('frontend.auth.login');})->name('login');
 Route::post('/post_login_user', [Login_userController::class , 'authenticate'])->name('post_login_user');
-Route::get('/product-detail/{id}', [DetailController::class , 'show'])->name('product_detail');
-Route::get('/cart', [CartController::class , 'index'])->name('add_to_cart');
+Route::get('/logout', [Login_userController::class, 'Logout'])->name('logout');
+Route::get('/cart', [CartController::class , 'cart'])->name('cart');
+Route::get('/carts/{id}', [CartController::class , 'addtoCart'])->name('addToCart');
+Route::get('update-cart/{id}', [CartController::class , 'update'])->name('update_cart');
+Route::get('delete-product/{productId}', [CartController::class , 'deleteProduct'])->name('delete_product');
+Route::get('/check', [CartController::class , 'check'])->name('check');
+Route::get('/order-complete', [CartController::class , 'order_complete'])->name('order_complete');
+Route::post('/checkout', [CartController::class , 'checkout'])->name('checkout');
+Route::get('/about', [HomeController::class , 'show_about'])->name('about');

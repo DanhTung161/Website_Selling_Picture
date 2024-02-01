@@ -1,14 +1,11 @@
 @extends('frontend.layout')
 @section('content1')
     <div class="col-lg-9 order-1 order-lg-2">
-
         <div class="masonry-loader masonry-loader-loaded">
-            <div class="row products product-thumb-info-list" data-plugin-masonry
-                data-plugin-options="{'layoutMode': 'fitRows'}" style="position: relative; height: 929.436px;">
-
+            <div class="row products product-thumb-info-list"  style="position: relative; height: 929.436px;">
                 <div class="col-sm-6 col-lg-4" style="position: absolute; left: 0px; top: 0px;">
                     <div class="product mb-0">
-                        @foreach ($homes as $item)
+                        @foreach ($product as $item)
                             {{-- <form action="/product" method="GET"> --}}
                             <div class="product-thumb-info border-0 mb-3">
 
@@ -18,10 +15,12 @@
                                 </div>
 
                                 <div class="addtocart-btn-wrapper">
-                                    <a href="" class="text-decoration-none addtocart-btn"
-                                        title="Add to Cart">
-                                        <i class="icons icon-bag"></i>
+                                    
+                                        <a href="{{route('addToCart',[$item->id])}}" class="text-decoration-none addtocart-btn"
+                                        title="Add to Cart"  >
+                                        <i class="icons icon-bag"></i> 
                                     </a>
+
                                 </div>
 
                                 <a data-toggle="modal" data-target="#modalproduct{{ $item->id }}" data-whatever="@mdo"
@@ -161,26 +160,16 @@
                                                                                 </div>
                                                                             </td>
                                                                         </tr>
-                                                                        {{-- <tr>
-                                                                            <td class="align-middle text-2 px-0 py-2">
-                                                                                COLOR:</td>
+                                                                        <tr>
+                                                                            <td for="material" class="align-middle text-2 px-0 py-2">Chất liệu:</td>
                                                                             <td class="px-0 py-2">
-                                                                                <div class="custom-select-1"
-                                                                                    id="name" name="name">
-                                                                                    
-                                                                                    <select name="color"
-                                                                                        class="form-control form-select text-1 h-auto py-2">
-                                                                                        <option value="">PLEASE
-                                                                                            CHOOSE</option>
-                                                                                        <option value="blue">Blue
-                                                                                        </option>
-                                                                                        <option value="red">Red</option>
-                                                                                        <option value="green">Green
-                                                                                        </option>
-                                                                                    </select>
-                                                                                </div>
+                                                                                @foreach ($material as $item)
+                                                                                    <div class="custom-select-1"  id="material" name="id">
+                                                                                        {{ $item->name }}
+                                                                                    </div>
+                                                                                @endforeach
                                                                             </td>
-                                                                        </tr> --}}
+                                                                        </tr>
                                                                     </tbody>
                                                                 </table>
                                                                 <hr>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Category;
-use App\Models\Sub_Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -31,7 +30,7 @@ class CategoryController extends Controller
     function onCreate(Request $request) {
         // validate các giá trị đầu vào => validator
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:categories|max:10'
+            'name' => 'required|unique:categories|max:50'
         ], [
             'required' => 'bạn phải nhập tên vào',
             'unique' => 'tên danh mục đã có sẵn',

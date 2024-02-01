@@ -24,7 +24,7 @@
                                             <i class="fas fa-angle-down"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMobileMore">
-                                            <a class="dropdown-item" href="#">About</a>
+                                            <a class="dropdown-item" href="">Trang chủ</a>
                                             <a class="dropdown-item" href="#">Our Stores</a>
                                             <a class="dropdown-item" href="#">Blog</a>
                                             <a class="dropdown-item" href="#">Contact</a>
@@ -33,19 +33,18 @@
                                         </div>
                                     </li>
                                     <li class="nav-item d-none d-lg-inline-block">
-                                        <a href="#"
-                                            class="text-decoration-none text-color-default text-color-hover-primary">About</a>
+                                        <a href="{{ route('home_user') }}"
+                                            class="text-decoration-none text-color-default text-color-hover-primary">Trang chủ</a>
+                                    </li>
+                                    <li class="nav-item d-none d-lg-inline-block">
+                                        <a href="{{ route('about')}}"
+                                            class="text-decoration-none text-color-default text-color-hover-primary">Giới thiệu</a>
                                     </li>
                                     <li class="nav-item d-none d-lg-inline-block">
                                         <a href="#"
-                                            class="text-decoration-none text-color-default text-color-hover-primary">Our
-                                            Stores</a>
+                                            class="text-decoration-none text-color-default text-color-hover-primary">Liên hệ </a>
                                     </li>
-                                    <li class="nav-item d-none d-lg-inline-block">
-                                        <a href="#"
-                                            class="text-decoration-none text-color-default text-color-hover-primary">Blog</a>
-                                    </li>
-                                    <li class="nav-item d-none d-lg-inline-block">
+                                    {{-- <li class="nav-item d-none d-lg-inline-block">
                                         <a href="#"
                                             class="text-decoration-none text-color-default text-color-hover-primary">Contact</a>
                                     </li>
@@ -58,7 +57,7 @@
                                         <a href="#"
                                             class="text-decoration-none text-color-default text-color-hover-primary">Track
                                             Order</a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item dropdown nav-item-left-border">
                                         <a class="nav-link text-color-default text-color-hover-primary" href="#"
                                             role="button" id="dropdownCurrency" data-bs-toggle="dropdown"
@@ -132,14 +131,16 @@
                                                 type="search" value="" placeholder="Search...">
                                             <div class="search-form-select-wrapper">
                                                 <div class="custom-select-1">
-                                                    <select name="category" class="form-control form-select">
+                                                    
+                                                    <select name="category_id" class="form-control form-select">
+                                                        
                                                         <option value="all" selected>All Categories</option>
-                                                        <option value="fashion">Fashion</option>
-                                                        <option value="electronics">Electronics</option>
-                                                        <option value="homegarden">Home & Garden</option>
-                                                        <option value="motors">Motors</option>
-                                                        <option value="features">Features</option>
+                                                        @foreach ($cate as $item)
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                        
+                                                        @endforeach
                                                     </select>
+                                                    
                                                 </div>
                                                 <button class="btn" type="submit">
                                                     <i
@@ -169,7 +170,7 @@
                             <ul class="header-extra-info">
                                 <li class="ms-0 ms-xl-4">
                                     <div class="header-extra-info-icon">
-                                        <a href="{{ route('login') }}"
+                                        <a href="{{ route('logout') }}"
                                             class="text-decoration-none text-color-dark text-color-hover-primary text-2">
                                             <i class="icons icon-user"></i>
                                         </a>
@@ -187,6 +188,9 @@
                             <div class="header-nav-features ps-0 ms-1">
                                 <div
                                     class="header-nav-feature header-nav-features-cart header-nav-features-cart-big d-inline-flex top-2 ms-2">
+                                    
+                                
+
                                     <a href="#" class="header-nav-features-toggle">
                                         <img src="img/icons/icon-cart-big.svg" height="30" alt=""
                                             class="header-nav-top-icon-img">
@@ -194,19 +198,25 @@
                                             <span class="cart-qty">1</span>
                                         </span>
                                     </a>
+                                
+
                                     <div class="header-nav-features-dropdown" id="headerTopCartDropdown">
+                                    <?php $subtotal = 0 ?>
+                                    @if(session('cart'))
+                                        @foreach (session('cart') as $key => $item)
+                                        <?php $subtotal += $item['price'] * $item['quantity'] ?>
                                         <ol class="mini-products-list">
                                             <li class="item">
-                                                <a href="#" title="Camera X1000" class="product-image">
-                                                    <img src="" alt="Camera X1000"></a>
+                                                <a href="#" title="" class="product-image">
+                                                    <img src="{{ $item['image'] }}" alt=""></a>
                                                     
                                                 <div class="product-details">
                                                     <p class="product-name">
-                                                        <a href="#">Camera X1000 </a>
+                                                        <a href="#">{{ $item['title'] }} </a>
                                                     </p>
                                                     
-                                                    <p class="qty-price">
-                                                        1X <span class="price">$890</span>
+                                                    <p class="qty-price" id="quantity{{$item['id']}}">
+                                                        {{ $item['quantity'] }} X <span class="price">{{ $item['price'] }}</span>
                                                     </p>
                                                     
                                                     <button type="button" title="Remove This Item" class="btn btn-link" 
@@ -216,15 +226,18 @@
                                                 </div>
                                             </li>
                                         </ol>
+                                        @endforeach
+                                    @endif
                                         <div class="totals">
                                             <span class="label">Total:</span>
-                                            <span class="price-total"><span class="price">$890</span></span>
+                                            <span class="price-total"><span class="price" id="subtotal">{{ $subtotal }}</span></span>
                                         </div>
                                         <div class="actions">
-                                            <a class="btn btn-dark" href="{{ route('add_to_cart') }}">View Cart</a>
-                                            <a class="btn btn-primary" href="#">Checkout</a>
+                                            <a class="btn btn-dark" href="{{ route('cart') }}">View Cart</a>
+                                            <a class="btn btn-primary" href="{{ route('check') }}">Checkout</a>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -239,4 +252,5 @@
         </div>
         @include('frontend.header.nav')
     </div>
+    
 </header>

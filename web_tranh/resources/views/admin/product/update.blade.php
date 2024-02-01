@@ -58,7 +58,7 @@
                                             name="id" hidden>
                                     </div>
                                     <div class="form-group">
-                                        <label for="composed">Tác giả</label>
+                                        <label for="composed">Sáng tác</label>
                                         <input type="text" class="form-control" id="composed"
                                             placeholder="Enter composed" name="composed" value="{{ $product->composed }}">
                                         <input type="text" class="form-control" value="{{ $product->id }}"

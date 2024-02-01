@@ -1,6 +1,8 @@
 <div class="card-footer clearfix">
-    <ul class="pagination pagination-sm m-0 float-right">
-        <li class="page-item">
+    
+    <ul class="pagination pagination-sm m-0 float-right" >
+        {{$data}}
+        {{-- <li class="page-item">
             <a class="page-link" href="#">&laquo;</a>
         </li>
         <li class="page-item">
@@ -14,6 +16,6 @@
         </li>
         <li class="page-item">
             <a class="page-link" href="#">&raquo;</a>
-        </li>
+        </li> --}}
     </ul>
 </div>
